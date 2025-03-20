@@ -7,6 +7,7 @@ import './index.css'
 
 function App() {
   const [activeSection, setActiveSection] = useState(0);
+  const [isMobile] = useState(window.innerWidth < 768); // Check if mobile
 
   const handleScroll = (e) => {
     const sections = document.querySelectorAll('section');
@@ -42,11 +43,12 @@ function App() {
             ${activeSection === 2 ? 'opacity-100' : 'opacity-0'}`}
         />
 
-        {/* Grid overlay */}
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+        {/* Grid overlay - Adjusted for mobile */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]
+          bg-repeat sm:bg-auto" />
         
-        {/* Animated blobs */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Animated blobs - Hidden on mobile */}
+        <div className="absolute inset-0 overflow-hidden hidden sm:block">
           {/* Blob 1 */}
           <div 
             className={`absolute top-[10%] -left-[10%] w-[500px] h-[500px] rounded-full blur-3xl animate-blob
@@ -81,19 +83,19 @@ function App() {
         onScroll={handleScroll}
       >
         {/* Section 1: Hero & Partners */}
-        <section className="relative snap-start snap-always h-screen w-full flex items-center justify-center">
+        <section className="relative snap-start snap-always min-h-screen w-full flex items-center justify-center px-4 sm:px-8">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1120]/50 to-[#0B1120] pointer-events-none" />
           <Hero />
         </section>
 
         {/* Section 2: Services */}
-        <section className="relative snap-start snap-always h-screen w-full flex items-center justify-center">
+        <section className="relative snap-start snap-always min-h-screen w-full flex items-center justify-center px-4 sm:px-8">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/90 to-[#0B1120] pointer-events-none" />
           <Services />
         </section>
 
         {/* Section 3: Retrieve */}
-        <section className="relative snap-start snap-always h-screen w-full flex items-center justify-center">
+        <section className="relative snap-start snap-always min-h-screen w-full flex items-center justify-center px-4 sm:px-8">
           <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/90 to-[#0B1120] pointer-events-none" />
           <Retrieve />
         </section>

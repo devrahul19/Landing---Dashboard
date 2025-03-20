@@ -44,7 +44,7 @@ const serviceCards = [
 
 function Services() {
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center">
+    <div className="relative min-h-screen w-full flex items-center justify-center py-8 sm:py-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* Animated circles */}
@@ -65,17 +65,17 @@ function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 relative"
+          className="text-center mb-8 sm:mb-16 relative"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400">
             Our Premium Data Services
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
             Unlock powerful insights with our comprehensive suite of data analytics services
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {serviceCards.map((service, index) => (
             <motion.div
               key={service.title}
@@ -128,4 +128,4 @@ function Services() {
   );
 }
 
-export default Services; 
+export default Services;
